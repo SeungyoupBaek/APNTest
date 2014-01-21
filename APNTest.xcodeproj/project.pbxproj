@@ -21,6 +21,7 @@
 		00F85B26188CE94100ED7DED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F85B08188CE94100ED7DED /* UIKit.framework */; };
 		00F85B2E188CE94100ED7DED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00F85B2C188CE94100ED7DED /* InfoPlist.strings */; };
 		00F85B30188CE94100ED7DED /* APNTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F85B2F188CE94100ED7DED /* APNTestTests.m */; };
+		00F85B3A188CF90400ED7DED /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F85B39188CF90400ED7DED /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		00F85B2B188CE94100ED7DED /* APNTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "APNTestTests-Info.plist"; sourceTree = "<group>"; };
 		00F85B2D188CE94100ED7DED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00F85B2F188CE94100ED7DED /* APNTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APNTestTests.m; sourceTree = "<group>"; };
+		00F85B39188CF90400ED7DED /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F85B3A188CF90400ED7DED /* AudioToolbox.framework in Frameworks */,
 				00F85B07188CE94100ED7DED /* CoreGraphics.framework in Frameworks */,
 				00F85B09188CE94100ED7DED /* UIKit.framework in Frameworks */,
 				00F85B05188CE94100ED7DED /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		00F85B03188CE94100ED7DED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00F85B39188CF90400ED7DED /* AudioToolbox.framework */,
 				00F85B04188CE94100ED7DED /* Foundation.framework */,
 				00F85B06188CE94100ED7DED /* CoreGraphics.framework */,
 				00F85B08188CE94100ED7DED /* UIKit.framework */,

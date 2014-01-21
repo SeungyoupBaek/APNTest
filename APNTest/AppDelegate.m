@@ -7,14 +7,49 @@
 //
 
 #import "AppDelegate.h"
+#import <AudioToolbox/AudioToolbox.h>
 
-@implementation AppDelegate
+@implementation AppDelegate{
+    NSMutableDictionary *messages;
+}
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    NSLog(@"Success to register APN : %@", deviceToken);
+}
+// 앱이 실행 중이거나 아닐때 받는 곳
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSLog(@"remote notification : %@", [userInfo description]);
+    NSDictionary *apsInfo = [userInfo objectForKey:@"aps"];
+    
+    NSString *alert = [apsInfo objectForKey:@"alert"];
+    NSLog(@"Received Push Alert : %@", alert);
+    
+    NSString *sound = [apsInfo objectForKey:@"sound"];
+    NSLog(@"Received Push Sound : %@", sound);
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
+    NSString *badge = [apsInfo objectForKey:@"badge"];
+    NSLog(@"Received Push Badge : %@", badge);
+    application.applicationIconBadgeNumber = [[apsInfo objectForKey:@"badge"] integerValue];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"메세지" message: alert delegate:nil cancelButtonTitle:@"닫기" otherButtonTitles: nil];
+    [alertView show];
+
+}
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"Fail to regiser ANP : %@", [error localizedDescription]);
+}
+
+
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    UIRemoteNotificationType notiType = UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound;
+    //토큰 요청
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notiType];
     return YES;
 }
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
